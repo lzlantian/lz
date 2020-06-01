@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--客户映射 指定到dao接口 -->
+<mapper namespace="com.lz.demo.dao.UserDao">
+	<resultMap type="com.lz.demo.entity.UserVO" id="userMap">
+	        <id property="id" column="id"/>
+	        <result property="name" column="name"/>
+	        <result property="addr" column="addr"/>
+	</resultMap>
+
+<select id="queryUser" resultMap="userMap">
+	select * from t_user
+</select>
+
+</mapper>

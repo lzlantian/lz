@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="test.IDao.UserMapper" >
+  <resultMap id="BaseResultMap" type="test.domain.User" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CUS_NAME" property="cusName" jdbcType="VARCHAR" />
+    <result column="ENT_CREDIT_ID" property="entCreditId" jdbcType="VARCHAR" />
+    <result column="ENTERPRISE_ADDR" property="enterpriseAddr" jdbcType="VARCHAR" />
+    <result column="ADDREASS" property="addreass" jdbcType="VARCHAR" />
+    <result column="LEGAL_CUS_NAME" property="legalCusName" jdbcType="VARCHAR" />
+    <result column="LEGAL_PHONE" property="legalPhone" jdbcType="VARCHAR" />
+    <result column="LEGAL_CARD_NO" property="legalCardNo" jdbcType="VARCHAR" />
+    <result column="LEGAL_CERT_CODE" property="legalCertCode" jdbcType="VARCHAR" />
+    <result column="REGIST_CAPITAL" property="registCapital" jdbcType="REAL" />
+    <result column="LAST_YEAR_INCOME" property="lastYearIncome" jdbcType="REAL" />
+    <result column="BUSINESS_SCOPE" property="businessScope" jdbcType="VARCHAR" />
+    <result column="CONTRACT_SERNO" property="contractSerno" jdbcType="VARCHAR" />
+    <result column="REFERENCES" property="references" jdbcType="VARCHAR" />
+    <result column="NEARBY_OUTLETS" property="nearbyOutlets" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="LMT_ITEM_ID" property="lmtItemId" jdbcType="VARCHAR" />
+    <result column="REQUEST_SERNO" property="requestSerno" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, CUS_NAME, ENT_CREDIT_ID, ENTERPRISE_ADDR, ADDREASS, LEGAL_CUS_NAME, LEGAL_PHONE, 
+    LEGAL_CARD_NO, LEGAL_CERT_CODE, REGIST_CAPITAL, LAST_YEAR_INCOME, BUSINESS_SCOPE, 
+    CONTRACT_SERNO, REFERENCES, NEARBY_OUTLETS, CREATE_TIME, UPDATE_TIME, STATUS, LMT_ITEM_ID, 
+    REQUEST_SERNO
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ele_guarantee_quota_apply
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ele_guarantee_quota_apply
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="test.domain.User" >
+    insert into ele_guarantee_quota_apply (ID, CUS_NAME, ENT_CREDIT_ID, 
+      ENTERPRISE_ADDR, ADDREASS, LEGAL_CUS_NAME, 
+      LEGAL_PHONE, LEGAL_CARD_NO, LEGAL_CERT_CODE, 
+      REGIST_CAPITAL, LAST_YEAR_INCOME, BUSINESS_SCOPE, 
+      CONTRACT_SERNO, REFERENCES, NEARBY_OUTLETS, 
+      CREATE_TIME, UPDATE_TIME, STATUS, 
+      LMT_ITEM_ID, REQUEST_SERNO)
+    values (#{id,jdbcType=INTEGER}, #{cusName,jdbcType=VARCHAR}, #{entCreditId,jdbcType=VARCHAR}, 
+      #{enterpriseAddr,jdbcType=VARCHAR}, #{addreass,jdbcType=VARCHAR}, #{legalCusName,jdbcType=VARCHAR}, 
+      #{legalPhone,jdbcType=VARCHAR}, #{legalCardNo,jdbcType=VARCHAR}, #{legalCertCode,jdbcType=VARCHAR}, 
+      #{registCapital,jdbcType=REAL}, #{lastYearIncome,jdbcType=REAL}, #{businessScope,jdbcType=VARCHAR}, 
+      #{contractSerno,jdbcType=VARCHAR}, #{references,jdbcType=VARCHAR}, #{nearbyOutlets,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{lmtItemId,jdbcType=VARCHAR}, #{requestSerno,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="test.domain.User" >
+    insert into ele_guarantee_quota_apply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="cusName != null" >
+        CUS_NAME,
+      </if>
+      <if test="entCreditId != null" >
+        ENT_CREDIT_ID,
+      </if>
+      <if test="enterpriseAddr != null" >
+        ENTERPRISE_ADDR,
+      </if>
+      <if test="addreass != null" >
+        ADDREASS,
+      </if>
+      <if test="legalCusName != null" >
+        LEGAL_CUS_NAME,
+      </if>
+      <if test="legalPhone != null" >
+        LEGAL_PHONE,
+      </if>
+      <if test="legalCardNo != null" >
+        LEGAL_CARD_NO,
+      </if>
+      <if test="legalCertCode != null" >
+        LEGAL_CERT_CODE,
+      </if>
+      <if test="registCapital != null" >
+        REGIST_CAPITAL,
+      </if>
+      <if test="lastYearIncome != null" >
+        LAST_YEAR_INCOME,
+      </if>
+      <if test="businessScope != null" >
+        BUSINESS_SCOPE,
+      </if>
+      <if test="contractSerno != null" >
+        CONTRACT_SERNO,
+      </if>
+      <if test="references != null" >
+        REFERENCES,
+      </if>
+      <if test="nearbyOutlets != null" >
+        NEARBY_OUTLETS,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="lmtItemId != null" >
+        LMT_ITEM_ID,
+      </if>
+      <if test="requestSerno != null" >
+        REQUEST_SERNO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cusName != null" >
+        #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="entCreditId != null" >
+        #{entCreditId,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseAddr != null" >
+        #{enterpriseAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="addreass != null" >
+        #{addreass,jdbcType=VARCHAR},
+      </if>
+      <if test="legalCusName != null" >
+        #{legalCusName,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPhone != null" >
+        #{legalPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="legalCardNo != null" >
+        #{legalCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="legalCertCode != null" >
+        #{legalCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="registCapital != null" >
+        #{registCapital,jdbcType=REAL},
+      </if>
+      <if test="lastYearIncome != null" >
+        #{lastYearIncome,jdbcType=REAL},
+      </if>
+      <if test="businessScope != null" >
+        #{businessScope,jdbcType=VARCHAR},
+      </if>
+      <if test="contractSerno != null" >
+        #{contractSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="references != null" >
+        #{references,jdbcType=VARCHAR},
+      </if>
+      <if test="nearbyOutlets != null" >
+        #{nearbyOutlets,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="lmtItemId != null" >
+        #{lmtItemId,jdbcType=VARCHAR},
+      </if>
+      <if test="requestSerno != null" >
+        #{requestSerno,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="test.domain.User" >
+    update ele_guarantee_quota_apply
+    <set >
+      <if test="cusName != null" >
+        CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="entCreditId != null" >
+        ENT_CREDIT_ID = #{entCreditId,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseAddr != null" >
+        ENTERPRISE_ADDR = #{enterpriseAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="addreass != null" >
+        ADDREASS = #{addreass,jdbcType=VARCHAR},
+      </if>
+      <if test="legalCusName != null" >
+        LEGAL_CUS_NAME = #{legalCusName,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPhone != null" >
+        LEGAL_PHONE = #{legalPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="legalCardNo != null" >
+        LEGAL_CARD_NO = #{legalCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="legalCertCode != null" >
+        LEGAL_CERT_CODE = #{legalCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="registCapital != null" >
+        REGIST_CAPITAL = #{registCapital,jdbcType=REAL},
+      </if>
+      <if test="lastYearIncome != null" >
+        LAST_YEAR_INCOME = #{lastYearIncome,jdbcType=REAL},
+      </if>
+      <if test="businessScope != null" >
+        BUSINESS_SCOPE = #{businessScope,jdbcType=VARCHAR},
+      </if>
+      <if test="contractSerno != null" >
+        CONTRACT_SERNO = #{contractSerno,jdbcType=VARCHAR},
+      </if>
+      <if test="references != null" >
+        REFERENCES = #{references,jdbcType=VARCHAR},
+      </if>
+      <if test="nearbyOutlets != null" >
+        NEARBY_OUTLETS = #{nearbyOutlets,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="lmtItemId != null" >
+        LMT_ITEM_ID = #{lmtItemId,jdbcType=VARCHAR},
+      </if>
+      <if test="requestSerno != null" >
+        REQUEST_SERNO = #{requestSerno,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="test.domain.User" >
+    update ele_guarantee_quota_apply
+    set CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      ENT_CREDIT_ID = #{entCreditId,jdbcType=VARCHAR},
+      ENTERPRISE_ADDR = #{enterpriseAddr,jdbcType=VARCHAR},
+      ADDREASS = #{addreass,jdbcType=VARCHAR},
+      LEGAL_CUS_NAME = #{legalCusName,jdbcType=VARCHAR},
+      LEGAL_PHONE = #{legalPhone,jdbcType=VARCHAR},
+      LEGAL_CARD_NO = #{legalCardNo,jdbcType=VARCHAR},
+      LEGAL_CERT_CODE = #{legalCertCode,jdbcType=VARCHAR},
+      REGIST_CAPITAL = #{registCapital,jdbcType=REAL},
+      LAST_YEAR_INCOME = #{lastYearIncome,jdbcType=REAL},
+      BUSINESS_SCOPE = #{businessScope,jdbcType=VARCHAR},
+      CONTRACT_SERNO = #{contractSerno,jdbcType=VARCHAR},
+      REFERENCES = #{references,jdbcType=VARCHAR},
+      NEARBY_OUTLETS = #{nearbyOutlets,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      STATUS = #{status,jdbcType=INTEGER},
+      LMT_ITEM_ID = #{lmtItemId,jdbcType=VARCHAR},
+      REQUEST_SERNO = #{requestSerno,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

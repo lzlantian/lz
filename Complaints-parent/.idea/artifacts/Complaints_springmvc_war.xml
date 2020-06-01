@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Complaints-springmvc:war">
+    <output-path>$PROJECT_DIR$/Complaints-springmvc/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Complaints-springmvc</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Complaints-springmvc.war">
+      <element id="artifact" artifact-name="Complaints-springmvc:war exploded" />
+    </root>
+  </artifact>
+</component>

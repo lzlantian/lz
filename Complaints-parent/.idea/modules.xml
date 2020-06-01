@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Complaints-hbase/Complaints-hbase.iml" filepath="$PROJECT_DIR$/Complaints-hbase/Complaints-hbase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Complaints-parent.iml" filepath="$PROJECT_DIR$/Complaints-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Complaints-playgame/Complaints-playgame.iml" filepath="$PROJECT_DIR$/Complaints-playgame/Complaints-playgame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Complaints-springmvc/Complaints-springmvc.iml" filepath="$PROJECT_DIR$/Complaints-springmvc/Complaints-springmvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Complaints-util/Complaints-util.iml" filepath="$PROJECT_DIR$/Complaints-util/Complaints-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/generator/generator.iml" filepath="$PROJECT_DIR$/generator/generator.iml" />
+    </modules>
+  </component>
+</project>
